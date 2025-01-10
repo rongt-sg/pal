@@ -52,7 +52,7 @@ def call_gpt(prompt, model='code-davinci-002', stop=None, temperature=0., top_p=
             completions.extend(ans)
             if len(completions) >= num_completions:
                 return completions[:num_completions]
-        except openai.error.RateLimitError as e:
+        except openai.RateLimitError as e:
             time.sleep(min(i**2, 60))
     raise RuntimeError('Failed to call GPT API')
 
