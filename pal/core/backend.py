@@ -58,7 +58,7 @@ def call_gpt(prompt, model='code-davinci-002', stop=None, temperature=0., top_p=
 
 def completions_api(model, max_tokens, stop, prompt, temperature,
             top_p, n, best_of):
-    ans = openai.Completion.create(
+    ans = openai.completions.create(
         model=model,
         max_tokens=max_tokens,
         stop=stop,
@@ -71,7 +71,7 @@ def completions_api(model, max_tokens, stop, prompt, temperature,
 
 def chat_api(model, max_tokens, stop, prompt, temperature,
             top_p, n, best_of):
-    ans = openai.ChatCompletion.create(
+    ans = openai.chat.completions.create(
         model=model,
         max_tokens=max_tokens,
         stop=stop,
@@ -88,7 +88,7 @@ def call_chat_gpt(messages, model='gpt-3.5-turbo', stop=None, temperature=0., to
     wait = 1
     while True:
         try:
-            ans = openai.ChatCompletion.create(
+            ans = openai.chat.completions.create(
                 model=model,
                 max_tokens=max_tokens,
                 stop=stop,
