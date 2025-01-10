@@ -81,7 +81,7 @@ def chat_api(model, max_tokens, stop, prompt, temperature,
         temperature=temperature,
         top_p=top_p,
         n=n)
-    return [choice['message']['content'] for choice in ans.choices']
+    return [choice['message']['content'] for choice in ans.choices]
 
 
 def call_chat_gpt(messages, model='gpt-3.5-turbo', stop=None, temperature=0., top_p=1.0, max_tokens=128):
